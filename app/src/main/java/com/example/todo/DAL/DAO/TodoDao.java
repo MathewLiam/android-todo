@@ -17,8 +17,8 @@ public interface TodoDao {
     @Query("SELECT * FROM todo_table")
     LiveData<List<Todo>> GetAll();
 
-    @Query("SELECT * FROM todo_table WHERE title = :uuid")
-    LiveData<Todo> Get(String uuid);
+    @Query("SELECT * FROM todo_table WHERE id = :id")
+    LiveData<Todo> Get(int id);
 
     @Insert
     void Insert(Todo todo);

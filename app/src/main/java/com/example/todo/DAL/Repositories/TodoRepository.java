@@ -36,8 +36,8 @@ public class TodoRepository {
         return TodoDao.GetAll();
     }
 
-    public LiveData<Todo> getByTitle(String title) {
-        return TodoDao.Get(title);
+    public LiveData<Todo> getById(int id) {
+        return TodoDao.Get(id);
     }
 
     public void Create(Todo todo) {

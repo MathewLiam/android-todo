@@ -75,6 +75,7 @@ public class TodoListViewAdapter extends RecyclerView.Adapter<TodoListViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), TodoDetailActivity.class);
+                    intent.putExtra("todo", Todos.get(getAdapterPosition()));
                     v.getContext().startActivity(intent);
                 }
             });
@@ -82,13 +83,8 @@ public class TodoListViewAdapter extends RecyclerView.Adapter<TodoListViewAdapte
             mCardView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    mCardView.setChecked(true);
-
-                    Log.d(ViewHolder.class.getSimpleName(), "checked!!");
-                    if (mCardView.isChecked()) {
-                        return true;
-                    }
-                    return false;
+                    mCardView.setChecked(!mCardView.isChecked());
+                    return true;
                 }
             });
         }
