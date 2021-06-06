@@ -2,7 +2,9 @@ package com.example.todo.TodoList;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +12,13 @@ import android.widget.TextView;
 
 import com.example.todo.DTO.Models.Todo;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.todo.R;
+import com.example.todo.TodoDetail.TodoDetailActivity;
+import com.google.android.material.card.MaterialCardView;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Todo}.
@@ -42,22 +48,49 @@ public class TodoListViewAdapter extends RecyclerView.Adapter<TodoListViewAdapte
 
     @Override
     public int getItemCount() {
-        return this.Todos.size();
+        try {
+            return this.Todos.size();
+        } catch (NullPointerException ex) {
+            return 0;
+        }
     }
 
     public void setTodos(List<Todo> todoList) {
         this.Todos = todoList;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView mContentView;
+        public final MaterialCardView mCardView;
         public Todo mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             mContentView = (TextView) view.findViewById(R.id.title);
+            mCardView = (MaterialCardView) view.findViewById(R.id.card);
+            mContentView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), TodoDetailActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            mCardView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    mCardView.setChecked(true);
+
+                    Log.d(ViewHolder.class.getSimpleName(), "checked!!");
+                    if (mCardView.isChecked()) {
+                        return true;
+                    }
+                    return false;
+                }
+            });
         }
 
         @Override
