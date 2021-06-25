@@ -1,10 +1,8 @@
-package com.example.todo.TodoList;
+package com.example.todo.UI.TodoList;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.text.Layout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +10,10 @@ import android.widget.TextView;
 
 import com.example.todo.DTO.Models.Todo;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.example.todo.R;
-import com.example.todo.TodoDetail.TodoDetailActivity;
+import com.example.todo.UI.TodoDetail.TodoDetailActivity;
 import com.google.android.material.card.MaterialCardView;
 
 /**
@@ -77,14 +73,6 @@ public class TodoListViewAdapter extends RecyclerView.Adapter<TodoListViewAdapte
                     Intent intent = new Intent(v.getContext(), TodoDetailActivity.class);
                     intent.putExtra("todo", Todos.get(getAdapterPosition()));
                     v.getContext().startActivity(intent);
-                }
-            });
-
-            mCardView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    mCardView.setChecked(!mCardView.isChecked());
-                    return true;
                 }
             });
         }

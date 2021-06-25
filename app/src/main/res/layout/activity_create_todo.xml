@@ -4,24 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.Main.MainActivity">
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:text="ADD"
-        android:onClick="StartCreateNewActivity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    tools:context=".UI.AddTodo.CreateTodoActivity">
 
     <fragment
-        android:id="@+id/fragment2"
-        android:name="com.example.todo.UI.TodoList.TodoFragment"
+        android:id="@+id/fragment"
+        android:name="com.example.todo.UI.TodoForm.TodoFormFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

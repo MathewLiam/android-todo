@@ -1,11 +1,10 @@
-package com.example.todo.TodoDetail;
+package com.example.todo.UI.TodoDetail;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
-import com.example.todo.DAL.Repositories.TodoRepository;
 import com.example.todo.DTO.Models.Todo;
 
 public class TodoDetailViewModel extends AndroidViewModel {
@@ -20,7 +19,7 @@ public class TodoDetailViewModel extends AndroidViewModel {
         return this.Todo;
     }
 
-    private void setTodo(Todo todo) {
+    public void setTodo(Todo todo) {
         this.Todo = todo;
     }
 }

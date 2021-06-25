@@ -9,19 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Todo">
-
-        <activity android:name=".MainActivity">
-
+        <activity android:name=".UI.AddTodo.CreateTodoActivity"
+            android:parentActivityName=".UI.Main.MainActivity"
+            android:label="New Todo"></activity>
+        <activity android:name=".UI.Main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TodoDetail.TodoDetailActivity"
-            android:parentActivityName=".MainActivity"
+        <activity
+            android:name=".UI.TodoDetail.TodoDetailActivity"
             android:label="Details"
-            ></activity>
+            android:parentActivityName=".UI.Main.MainActivity" />
     </application>
 
 </manifest>
