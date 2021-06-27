@@ -1,5 +1,6 @@
 package com.example.todo.UI.Main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.todo.R;
+import com.example.todo.TodoFormActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +48,9 @@ public class MainFragment extends Fragment {
         mCreateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), TodoFormActivity.class);
+                intent.putExtra(TodoFormActivity.FORM_MODE_KEY, 0);
+                v.getContext().startActivity(intent);
             }
         });
 

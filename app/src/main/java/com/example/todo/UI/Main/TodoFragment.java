@@ -24,10 +24,8 @@ import java.util.List;
  * A fragment representing a list of Items.
  */
 public class TodoFragment extends Fragment {
-
-    // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
+    private TodoViewModel mViewModel;
     private int mColumnCount = 1;
     private TodoListViewAdapter adapter;
 
@@ -38,7 +36,6 @@ public class TodoFragment extends Fragment {
     public TodoFragment() {
     }
 
-    // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
     public static TodoFragment newInstance(int columnCount) {
         TodoFragment fragment = new TodoFragment();
@@ -61,8 +58,6 @@ public class TodoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_todo_list, container, false);
-
-        // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
@@ -81,9 +76,9 @@ public class TodoFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        TodoViewModel viewModel = new ViewModelProvider(this).get(TodoViewModel.class);
+        mViewModel = new ViewModelProvider(requireActivity()).get(TodoViewModel.class);
 
-        viewModel.getLiveDataTodos().observe(getViewLifecycleOwner(), new Observer<List<Todo>>() {
+        mViewModel.getLiveDataTodos().observe(getViewLifecycleOwner(), new Observer<List<Todo>>() {
             @Override
             public void onChanged(List<Todo> todos) {
                 adapter.setTodos(todos);

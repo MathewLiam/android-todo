@@ -16,6 +16,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.todo.DAL.DAO.TodoDao;
 import com.example.todo.DTO.Models.Todo;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * Defines the RoomDatabase for the Todo Application
  * @see RoomDatabase
@@ -23,6 +26,8 @@ import com.example.todo.DTO.Models.Todo;
 @Database(entities = { Todo.class }, version = 1)
 public abstract class TodoDatabase extends RoomDatabase {
     public abstract TodoDao todoDao();
+    private static final int NUMBER_OF_THREADS = 4;
+    public static final ExecutorService databaseExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     private static volatile TodoDatabase INSTANCE;
 

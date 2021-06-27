@@ -20,6 +20,10 @@
             android:name=".TodoDetailActivity"
             android:label="Details"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".TodoFormActivity"
+            android:label="Create"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

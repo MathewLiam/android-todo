@@ -25,6 +25,9 @@ public class Todo implements Serializable {
     public Todo(@NonNull String title) {
         this.mTitle = title;
     }
+    public void setTitle(String title) {
+        this.mTitle = title;
+    }
     public String getTitle() {
         return this.mTitle;
     }

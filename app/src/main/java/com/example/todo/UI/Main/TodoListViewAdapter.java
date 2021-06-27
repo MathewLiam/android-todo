@@ -71,7 +71,7 @@ public class TodoListViewAdapter extends RecyclerView.Adapter<TodoListViewAdapte
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), TodoDetailActivity.class);
-                    intent.putExtra("todo", Todos.get(getAdapterPosition()));
+                    intent.putExtra(TodoDetailActivity.DETAIL_TODO_ID, Todos.get(getAdapterPosition()).getId());
                     v.getContext().startActivity(intent);
                 }
             });

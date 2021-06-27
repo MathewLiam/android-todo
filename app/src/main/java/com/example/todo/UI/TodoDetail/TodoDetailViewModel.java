@@ -4,22 +4,31 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 
+import com.example.todo.DAL.Repositories.TodoRepository;
 import com.example.todo.DTO.Models.Todo;
 
 public class TodoDetailViewModel extends AndroidViewModel {
 
-    private Todo Todo;
+    private LiveData<Todo> Todo;
+
+    private TodoRepository TodoRepository;
 
     public TodoDetailViewModel(@NonNull Application application) {
         super(application);
+        TodoRepository = new TodoRepository(application);
     }
 
-    public Todo getTodo() {
+    public LiveData<Todo> getTodo() {
         return this.Todo;
     }
 
-    public void setTodo(Todo todo) {
-        this.Todo = todo;
+    public void setTodo(int Id) {
+        this.Todo = TodoRepository.getById(Id);
+    }
+
+    public void deleteTodo(Todo todo) {
+        this.TodoRepository.Delete(todo);
     }
 }

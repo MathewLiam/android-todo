@@ -42,9 +42,40 @@ public class TodoRepository {
 
     public void Create(Todo todo) {
         try {
-            TodoDao.Insert(todo);
+            TodoDatabase.databaseExecutor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    TodoDao.Insert(todo);
+                }
+            });
         } catch (Exception ex) {
             Log.e(TodoRepository.class.getSimpleName(), "Failed to insert into the todo_table");
+        }
+    }
+
+    public void Update(Todo todo) {
+        try {
+            TodoDatabase.databaseExecutor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    TodoDao.Update(todo);
+                }
+            });
+        } catch (Exception ex) {
+            Log.e(TodoRepository.class.getSimpleName(), "Failed to update a record in the todo_table");
+        }
+    }
+
+    public void Delete(Todo todo) {
+        try {
+            TodoDatabase.databaseExecutor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    TodoDao.Delete(todo);
+                }
+            });
+        } catch (Exception ex) {
+            Log.e(TodoRepository.class.getSimpleName(), String.format("Failed to delete {0} from the todo_table. {1}", todo.getId(), ex));
         }
     }
 }
