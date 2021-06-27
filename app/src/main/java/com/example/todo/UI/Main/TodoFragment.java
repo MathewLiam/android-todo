@@ -1,4 +1,4 @@
-package com.example.todo.UI.TodoList;
+package com.example.todo.UI.Main;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -81,9 +81,9 @@ public class TodoFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        TodoListViewModel viewModel = new ViewModelProvider(this).get(TodoListViewModel.class);
+        TodoViewModel viewModel = new ViewModelProvider(this).get(TodoViewModel.class);
 
-        viewModel.getTodos().observe(getViewLifecycleOwner(), new Observer<List<Todo>>() {
+        viewModel.getLiveDataTodos().observe(getViewLifecycleOwner(), new Observer<List<Todo>>() {
             @Override
             public void onChanged(List<Todo> todos) {
                 adapter.setTodos(todos);

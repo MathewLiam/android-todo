@@ -1,4 +1,4 @@
-package com.example.todo.UI.TodoList;
+package com.example.todo.UI.Main;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,7 +13,7 @@ import com.example.todo.DTO.Models.Todo;
 import java.util.List;
 
 import com.example.todo.R;
-import com.example.todo.UI.TodoDetail.TodoDetailActivity;
+import com.example.todo.TodoDetailActivity;
 import com.google.android.material.card.MaterialCardView;
 
 /**
@@ -75,11 +75,6 @@ public class TodoListViewAdapter extends RecyclerView.Adapter<TodoListViewAdapte
                     v.getContext().startActivity(intent);
                 }
             });
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
         }
     }
 }

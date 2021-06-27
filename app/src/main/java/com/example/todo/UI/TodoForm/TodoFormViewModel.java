@@ -1,30 +1,17 @@
 package com.example.todo.UI.TodoForm;
 
 import android.app.Application;
+
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import com.example.todo.DAL.Repositories.TodoRepository;
-import com.example.todo.DTO.Models.Todo;
 
+/**
+ * Defines the TodoFormViewModel to submit an update or insert.
+ */
 public class TodoFormViewModel extends AndroidViewModel {
+    private Boolean mFormMode;
 
-    private Todo Todo;
-
-    private TodoRepository TodoRepository;
-
-    public TodoFormViewModel(Application application) {
+    public TodoFormViewModel(@NonNull Application application, Boolean formMode) {
         super(application);
-        this.TodoRepository = new TodoRepository(application);
-    }
-
-    public Todo getTodo() {
-        return this.Todo;
-    }
-
-    public void setTodo(Todo todo) {
-        this.Todo = todo;
-    }
-
-    public void SaveTodo() {
-        this.TodoRepository.Create(this.Todo);
     }
 }

@@ -4,16 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.AddTodo.CreateTodoActivity">
+    tools:context=".UI.Main.MainFragment">
+
 
     <fragment
-        android:id="@+id/fragment"
-        android:name="com.example.todo.UI.TodoForm.TodoFormFragment"
-        android:layout_width="0dp"
+        android:name="com.example.todo.UI.Main.TodoFragment"
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/create_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/create_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        android:text="Create Todo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

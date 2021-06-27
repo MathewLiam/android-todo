@@ -1,14 +1,14 @@
-package com.example.todo.UI.AddTodo;
+package com.example.todo;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.todo.R;
+
 import android.os.Bundle;
 
-public class CreateTodoActivity extends AppCompatActivity {
+public class TodoFormActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_todo);
+        setContentView(R.layout.activity_todo_form);
     }
 }
