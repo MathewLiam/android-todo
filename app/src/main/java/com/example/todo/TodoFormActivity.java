@@ -16,6 +16,9 @@ public class TodoFormActivity extends AppCompatActivity {
     public static final String FORM_MODE_KEY = "FORM_MODE";
     public static final String FORM_TODO_KEY = "FORM_TODO";
 
+    /**
+     * View model for the todo form.
+     */
     private TodoFormViewModel mViewModel;
 
     @Override

@@ -6,6 +6,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity(tableName = "todo_table")
@@ -22,6 +23,9 @@ public class Todo implements Serializable {
     @ColumnInfo(name = "description")
     private String mDetail;
 
+    @ColumnInfo(name = "complete")
+    private Boolean mComplete;
+
     public Todo(@NonNull String title) {
         this.mTitle = title;
     }
@@ -33,6 +37,12 @@ public class Todo implements Serializable {
     }
     public int getId() { return this.Id; }
     public void setId(int id) { this.Id = id; }
+    public Boolean getComplete() {
+        return this.mComplete;
+    }
+    public void setComplete(Boolean complete) {
+        this.mComplete = complete;
+    }
     public String getDetail() {
         return this.mDetail;
     }

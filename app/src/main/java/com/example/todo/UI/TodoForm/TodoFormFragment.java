@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +37,10 @@ public class TodoFormFragment extends Fragment {
 
     private EditText mDescription;
 
+    private CheckBox mComplete;
+
     private TodoFormViewModel mViewModel;
+
 
     public TodoFormFragment() {
     }
@@ -68,6 +74,7 @@ public class TodoFormFragment extends Fragment {
                 Todo todo = mViewModel.getTodo() != null ? mViewModel.getTodo() : new Todo(mTitle.getText().toString());
                 todo.setDetail(mDescription.getText().toString());
                 todo.setTitle(mTitle.getText().toString());
+                todo.setComplete(mComplete.isChecked());
                 mViewModel.setTodo(todo);
                 mViewModel.Submit();
                 getActivity().finish();
@@ -76,9 +83,12 @@ public class TodoFormFragment extends Fragment {
 
         mTitle = view.findViewById(R.id.title_field);
         mDescription = view.findViewById(R.id.description_field);
+
+        mComplete = view.findViewById(R.id.complete_field);
         if (mViewModel.getTodo() != null) {
             mTitle.setText(mViewModel.getTodo().getTitle());
             mDescription.setText(mViewModel.getTodo().getDetail());
+            mComplete.setActivated(mViewModel.getTodo().getComplete());
         }
 
         return view;

@@ -32,6 +32,8 @@ public class TodoRepository {
         this.TodoDao = db.todoDao();
     }
 
+    public LiveData<List<Todo>> getAllActive() { return TodoDao.GetAllActive(); }
+
     public LiveData<List<Todo>> getAll() {
         return TodoDao.GetAll();
     }

@@ -19,7 +19,7 @@ public class TodoViewModel extends AndroidViewModel {
         super(application);
 
         todoRepository = new TodoRepository(application);
-        LiveDataTodos = todoRepository.getAll();
+        LiveDataTodos = todoRepository.getAllActive();
     }
 
     public LiveData<List<Todo>> getLiveDataTodos() {

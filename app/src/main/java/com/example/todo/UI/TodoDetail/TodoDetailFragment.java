@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.todo.DTO.Models.Todo;
@@ -47,6 +48,8 @@ public class TodoDetailFragment extends Fragment {
      *
      */
     private Button mEditButton;
+
+    private CheckBox mComplete;
 
     /**
      * The detail view model.
@@ -83,11 +86,14 @@ public class TodoDetailFragment extends Fragment {
         mDescription = (TextView) view.findViewById(R.id.description_value);
         mDeleteButton = (Button) view.findViewById(R.id.button_delete);
         mEditButton = (Button) view.findViewById(R.id.button_edit);
+        mComplete = (CheckBox) view.findViewById(R.id.active);
+        mComplete.setEnabled(false);
         mViewModel.getTodo().observe(getViewLifecycleOwner(), new Observer<Todo>() {
             @Override
             public void onChanged(Todo todo) {
                 mTitle.setText(todo.getTitle());
                 mDescription.setText(todo.getDetail());
+                mComplete.setChecked(todo.getComplete());
 
                 mDeleteButton.setOnClickListener(new View.OnClickListener() {
                     @Override

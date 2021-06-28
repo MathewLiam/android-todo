@@ -9,4 +9,5 @@
     <string name="edit_label">Edit</string>
     <string name="delete_label">Delete</string>
     <string name="create_label">Create Todo</string>
+    <string name="complete_label">Complete</string>
 </resources>

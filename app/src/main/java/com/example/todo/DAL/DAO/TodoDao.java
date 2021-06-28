@@ -18,6 +18,9 @@ public interface TodoDao {
     @Query("SELECT * FROM todo_table")
     LiveData<List<Todo>> GetAll();
 
+    @Query("SELECT * FROM todo_table WHERE complete = 0")
+    LiveData<List<Todo>> GetAllActive();
+
     @Query("SELECT * FROM todo_table WHERE id = :id")
     LiveData<Todo> Get(int id);
 
